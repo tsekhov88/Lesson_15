@@ -24,3 +24,4 @@ Route::get('/login', 'Auth\LoginController@form');
 Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/addresses', 'AddressesController@index'); 
+Route::post('/addresses', 'AddressesController@store');

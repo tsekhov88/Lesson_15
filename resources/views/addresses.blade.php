@@ -73,8 +73,47 @@
                 </div>
                     <h2>Добавить адрес</h2>
                     <form action='/addresses' method="POST">
-                        
+                        <div>
+                            <input type="text" name="city_name" placeholder="Населенный пунк" required="required" />
+                        </div>
+                        <div>
+                            <input type="text" name="street" placeholder="Улица" required="required" />
+                        </div>
+                        <div>
+                            <input type="text" name="house" placeholder="Номер дома" required="required" />
+                        </div>
+                        <div>
+                            <input type="text" name="floor" placeholder="Квартира" />
+                        </div>
+                        <div>
+                            <input type="submit" value="Сохранить" />
+                        </div>
                     </form>
+                    <div>
+                        <h2>Список адресов</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Номер</th>
+                                    <th>Населенный пункт</th>
+                                    <th>Улица</th>
+                                    <th>Номер дома</th>
+                                    <th>Квартира</th>
+                                </tr>
+                                </thead>
+                            <tbody>
+                                <?php foreach ($items as $item) { ?>
+                                    <tr>
+                                        <td><?=$item->id ?></td>
+                                        <td><?=$item->city_name ?></td>
+                                        <td><?=$item->street ?></td>
+                                        <td><?=$item->house ?></td>
+                                        <td><?=$item->floor ?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>    
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
