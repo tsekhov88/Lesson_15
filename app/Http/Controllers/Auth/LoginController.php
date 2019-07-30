@@ -7,33 +7,21 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function form()
     {
-        $this->middleware('guest')->except('logout');
+        return view('login');
+    }
+    public function login()
+    {
+        $data = request()->all();
+        $valid_username = config('app.auth_username');
+        $valid_password = config('app.auth_password');
+
+        if ($data['username'] == $valid_username && $data['password'] == $valid_password) {
+            session(['is_auth' => true]);
+            return redirect('/addresses');
+        } else {
+            return redirect('/login');
+        } 
     }
 }

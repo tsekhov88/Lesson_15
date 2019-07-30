@@ -20,3 +20,7 @@ Route::get('/contacts', function () {
 });
 
 Route::get('/news', 'NewsController@show'); 
+Route::get('/login', 'Auth\LoginController@form'); 
+Route::post('/login', 'Auth\LoginController@login');
+
+Route::get('/addresses', 'AddressesController@index'); 
