@@ -29,6 +29,7 @@ class AddressesController extends Controller {
 		$model->fill($date); // запомнили 
 		$model->save(); //сохранили в базу
 
+		
 
 		return redirect('/addresses');
 	}

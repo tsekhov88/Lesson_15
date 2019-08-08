@@ -25,3 +25,7 @@ Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/addresses', 'AddressesController@index'); 
 Route::post('/addresses', 'AddressesController@store');
+
+Route::get('/books', 'BooksController@index'); 
+Route::get('/books-add', 'BooksController@addPage'); 
+Route::post('/books', 'BooksController@store');
